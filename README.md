@@ -5,6 +5,7 @@ I have set up this repository as a catch-all for the notes I make as I learn new
 
 - **ADMIXTURE** - used to estimate global genetic ancestry; walkthrough of a supervised admixed run on African Americans
 - **BASH Commands** - navigating the server; basic bash commands for navigation, finding and viewing data; also detaching screens for backgrounf processes
+- **CCLoop** - continuous Claude Code/Codex workflow with Kimi Code fallback, checkpointed turns, model selection, and peer review; see [CCLoop_Tutorial.md](CCLoop_Tutorial.md)
 - **GENESES_PCRelate** - used to estimate relatedness measurements in sample; genetic relatedness matrix generation
 - **GRM Methods Comparison** - evaluates Pro's and Con's of 3 common GRM computation programs (GENESIS, REAP, GCTA) and conlcudes that GENESIS is the most robust for admixed populations
 - **Markdown** - quick summary of markdown syntax used to create the following files
