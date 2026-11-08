@@ -21,11 +21,13 @@ ccloop --driver codex --project /path/to/project --goal "The original goal" --ro
 
 ## Models and peer questions
 
-You do not need to include a model name in the goal or peer question. With automatic model updates enabled, ccloop selects a model profile and records the requested and observed model separately. Claude uses the dynamic `opus` alias, which resolves to the current Opus model available to that provider. Kimi Code uses the newest K-series model configured in that computer's Kimi Code catalog. Kimi availability and model aliases can differ between accounts; sign in and refresh the model catalog on each computer first.
+You do not need to include a model name in the goal or peer question. With automatic model updates enabled, ccloop selects a model profile and records the requested and observed model separately. Claude uses the dynamic `opus` alias, which resolves to the current Opus model available to that provider. At the last verification on 2026-11-06, it resolved to Opus 5.5. This alias can advance with the provider, so ccloop does not need a separate CLI process to look up model versions.
 
-ccloop checks model metadata on a 30-minute cache. An explicit model flag pins that run's model profile. An inaccessible provider may trigger the configured Kimi fallback; Kimi cannot review its own work.
+Kimi Code uses the highest K-series model configured in that computer's Kimi Code catalog. For example, a catalog with K3 and K3.1 Pro selects K3.1 Pro; a computer without that alias selects the highest K-series model it has configured. Kimi availability and aliases can differ between accounts. Sign in on each computer with `kimi-code login`; in the Kimi Code TUI, `/provider refresh` refreshes the available model catalog.
 
-Ordinary technical questions go to the opposite model through ccloop. The manager records the question, response, and the worker's choice before continuing.
+ccloop checks public model metadata on a 30-minute cache. An explicit model flag pins that run's model profile. An inaccessible provider may trigger the configured Kimi fallback; Kimi cannot review its own work.
+
+Ordinary technical questions go to the opposite model through ccloop. The manager records the question, response, and the worker's choice before continuing. Each peer consultation starts one provider CLI process; model discovery happens from metadata and local configuration, not a separate CLI probe.
 
 ## Long tasks and saved progress
 
